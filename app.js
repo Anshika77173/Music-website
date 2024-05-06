@@ -1,5 +1,6 @@
 const music = new Audio('music/song3.mp3');
-
+const music1 = new Audio('ammy virk/ammy1.mp3');
+let artistName = document.get
 const songs = [
     {
         id: "1",
@@ -61,10 +62,24 @@ const songs = [
         <div class ="subtitle">Alan Walker</div>`,
         poster:"poster/image10.jpg",
     },
-
+    
 
 ];
 
+ const song1 = [
+    {
+        id:"ammy",
+        songName:`ammy1`,
+        
+
+    },
+    {
+        id:"12",
+        songName:`ammy2`,
+        
+
+    },
+ ];
 
 
 Array.from(document.getElementsByClassName('songItem')).forEach((e, i) => {
@@ -74,6 +89,17 @@ Array.from(document.getElementsByClassName('songItem')).forEach((e, i) => {
     }
 });
 
+Array.from(document.querySelectorAll('.item')).forEach((artistImg) => {
+    artistImg.addEventListener('click', (event) => {
+        let artistId = event.target.dataset.artistId; // Change dataset.artistId to dataset.artistId
+        console.log("Artist ID:", artistId); // Log artistId to check if it's correctly retrieved
+        let selectedSong = song1.find((song1) => song1.id === artistId);
+        console.log("Selected Song:", selectedSong); // Log selected song to check if it's correctly retrieved
+        music1.src = `${artistName}/song${selectedSong.id}.mp3`;
+        music1.play(); // Play music1 instead of music
+        // title.innerHTML = selectedSong.songName;
+    });
+});
 let masterplay = document.getElementById('master_play');
 let wave = document.getElementById('wave');
 
